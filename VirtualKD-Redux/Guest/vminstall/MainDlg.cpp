@@ -13,6 +13,8 @@
 #include <BazisLib/bzshlp/Win32/wow64.h>
 #include <BazisLib/bzscore/Win32/registry.h>
 
+#include "vkdversion.h"
+
 using namespace BazisLib;
 using namespace BootEditor;
 
@@ -67,7 +69,7 @@ LRESULT CMainDlg::OnInitDialog(UINT /*uMsg*/, WPARAM /*wParam*/, LPARAM /*lParam
     }
 
     m_ExistingEntryName = pEntry->GetDescription();
-    SetDlgItemText(IDC_REUSEENTRY, String::sFormat(_T("Use existing entry (%s)"), m_ExistingEntryName.c_str()).c_str());
+    SetDlgItemText(IDC_REUSEENTRY, String::sFormat(_T("Use existing entry \"%s\""), m_ExistingEntryName.c_str()).c_str());
     SendDlgItemMessage(IDC_SETDEFAULT, BM_SETCHECK, BST_CHECKED);
     SendDlgItemMessage(IDC_KDCOM, BM_SETCHECK, BST_CHECKED);
 
@@ -109,6 +111,8 @@ LRESULT CMainDlg::OnInitDialog(UINT /*uMsg*/, WPARAM /*wParam*/, LPARAM /*lParam
 
     if (_tcsstr(GetCommandLine(), _T("/AUTO")))
         PostMessage(WM_COMMAND, IDOK);
+
+    SetWindowTextA(m_hWnd, "Install VirtualKD-Redux " VIRTUALKD_REDUX_VERSION_STR " on Virtual Machine");
 
     return TRUE;
 }
