@@ -41,6 +41,7 @@
 #define IDC_CLEANUPVMS                  1016
 #define IDC_LOGHINT                     1017
 #define IDC_USEWINDBGPREVIEW            1017
+#define IDC_WINDBGPREVIEWPATH           1018
 
 // Next default values for new objects
 // 
